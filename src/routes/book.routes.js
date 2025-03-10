@@ -29,7 +29,7 @@ router.get("/", async (req, res) => {
   try {
     const books = await Book.find();
     if (books.length <= 0) return res.status(204).json([]);
-    return res(books);
+    return res.status(200).json(books);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ msg: error.message });
